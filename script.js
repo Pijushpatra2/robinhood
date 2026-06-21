@@ -1,5 +1,5 @@
 /* ----------------------------------------------------
-   INVESTLY INTERACTION CONTROLLER
+   ROBINHOOD INTERACTION CONTROLLER
    ---------------------------------------------------- */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -238,10 +238,11 @@ document.addEventListener('DOMContentLoaded', () => {
     statNumbers.forEach(num => statsObserver.observe(num));
 
     /* ====================================================
-       8. HERO DYNAMIC PORTFOLIO TICKER FLUCTUATIONS
+       8. HERO DYNAMIC PORTFOLIO TICKER FLUCTUATIONS & PARALLAX
        ==================================================== */
     const heroBalance = document.getElementById('heroBalanceValue');
     const heroProfit = document.getElementById('heroProfitBadge');
+    const heroMockup = document.getElementById('heroMockup');
 
     if (heroBalance && heroProfit) {
         let baseBalance = 74892.40;
@@ -272,6 +273,116 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }, 2500);
     }
+
+    if (heroMockup) {
+        document.addEventListener('mousemove', (e) => {
+            const rect = heroMockup.getBoundingClientRect();
+            if (rect.bottom > 0 && rect.top < window.innerHeight) {
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+                const deltaX = (e.clientX - centerX) / (window.innerWidth / 2);
+                const deltaY = (e.clientY - centerY) / (window.innerHeight / 2);
+
+                heroMockup.style.transform = `rotateY(${deltaX * 6}deg) rotateX(${-deltaY * 4}deg) translateY(${-deltaY * 3}px)`;
+            }
+        });
+        heroMockup.addEventListener('mouseleave', () => {
+            heroMockup.style.transform = 'rotateY(0) rotateX(0) translateY(0)';
+        });
+    }
+
+    /* ====================================================
+       8B. STICKY CTA SCROLL TRIGGER
+       ==================================================== */
+    const stickyCta = document.getElementById('stickyCtaBar');
+    const heroSection = document.getElementById('hero');
+
+    if (stickyCta && heroSection) {
+        window.addEventListener('scroll', () => {
+            const heroRect = heroSection.getBoundingClientRect();
+            // Show sticky CTA once user scrolls past 60% of Hero height
+            if (heroRect.bottom < heroRect.height * 0.4) {
+                stickyCta.classList.add('active');
+            } else {
+                stickyCta.classList.remove('active');
+            }
+        });
+    }
+
+    /* ====================================================
+       8C. PHONE LEAD CAPTURE & CONVERSION FEEDBACK
+       ==================================================== */
+    const leadForms = document.querySelectorAll('#heroLeadForm, #stickyLeadForm, #finalLeadForm');
+    leadForms.forEach(form => {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const phoneInput = form.querySelector('.phone-input');
+            const countrySelect = form.querySelector('.country-select');
+            const submitBtn = form.querySelector('.lead-submit');
+
+            if (!phoneInput || !submitBtn) return;
+
+            const phoneNumber = phoneInput.value.trim();
+            const countryCode = countrySelect ? countrySelect.value : '+1';
+
+            // Basic check for digits length
+            const digitCount = phoneNumber.replace(/\D/g, '').length;
+            if (digitCount < 7) {
+                phoneInput.style.borderColor = '#FF4F4F';
+                phoneInput.focus();
+                return;
+            }
+
+            // Visual Processing state
+            phoneInput.style.borderColor = '';
+            const originalBtnText = submitBtn.textContent;
+            submitBtn.textContent = 'Processing...';
+            submitBtn.style.pointerEvents = 'none';
+            submitBtn.style.opacity = '0.7';
+
+            setTimeout(() => {
+                submitBtn.textContent = '✓ Connected';
+                submitBtn.style.backgroundColor = '#8AFF00';
+                submitBtn.style.color = '#050505';
+
+                // Clear form inputs
+                phoneInput.value = '';
+
+                // Show conversion success notification
+                const toast = document.createElement('div');
+                toast.className = 'conversion-toast';
+                toast.innerHTML = `
+                    <div class="toast-content">
+                        <span class="toast-icon">🚀</span>
+                        <div class="toast-text">
+                            <strong>Success!</strong>
+                            <span>Investing guide sent to ${countryCode} ${phoneNumber}</span>
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(toast);
+
+                setTimeout(() => {
+                    toast.classList.add('active');
+                }, 100);
+
+                setTimeout(() => {
+                    toast.classList.remove('active');
+                    setTimeout(() => toast.remove(), 500);
+                }, 4000);
+
+                // Restore button
+                setTimeout(() => {
+                    submitBtn.textContent = originalBtnText;
+                    submitBtn.style.backgroundColor = '';
+                    submitBtn.style.color = '';
+                    submitBtn.style.pointerEvents = '';
+                    submitBtn.style.opacity = '';
+                }, 2500);
+
+            }, 1200);
+        });
+    });
 
     /* ====================================================
        9. SHOWCASE INTERACTIVE CHART & TAB SYSTEM

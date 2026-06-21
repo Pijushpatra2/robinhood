@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Investly — Investing Made Simple, Wealth Building Made Possible</title>
+    <title>Robinhood — Investing Made Simple, Wealth Building Made Possible</title>
     <!-- SEO Meta Tags -->
     <meta name="description" content="Access stocks, ETFs, retirement accounts, and intelligent portfolio insights through one modern, secure fintech platform designed for long-term growth.">
     <meta name="keywords" content="fintech, investing, stocks, ETFs, retirement, wealth management, automated portfolios, financial tools">
-    <meta name="author" content="Investly Technologies">
+    <meta name="author" content="Robinhood Technologies">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Investly — Investing Made Simple">
+    <meta property="og:title" content="Robinhood — Investing Made Simple">
     <meta property="og:description" content="Access stocks, ETFs, retirement accounts, and intelligent portfolio insights through one modern platform.">
     
     <!-- Google Fonts - Inter & Outfit (for headings) -->
@@ -23,6 +23,22 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!-- Sticky Floating CTA Bar -->
+    <div class="sticky-cta-bar" id="stickyCtaBar">
+        <div class="sticky-cta-container">
+            <div class="sticky-cta-text">
+                <span class="sticky-title">Start Your Journey Today</span>
+                <span class="sticky-subtitle">takes less than 30 seconds</span>
+            </div>
+            <a href="tel:999999999" class="btn btn-primary btn-shine sticky-call-btn">
+                <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                999999999
+            </a>
+        </div>
+    </div>
 
     <!-- Custom Cursor -->
     <div class="custom-cursor" id="customCursor"></div>
@@ -39,11 +55,7 @@
     <header class="navbar" id="navbar">
         <div class="navbar-container">
             <a href="#" class="logo" id="logo">
-                <svg class="logo-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4 18L10 12L14 16L20 8" stroke="#C8FF4D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M14 8H20V14" stroke="#C8FF4D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <span>INVESTLY</span>
+                <img src="assets/logo.png" alt="Robinhood" class="logo-img">
             </a>
             
             <nav class="nav-menu" id="navMenu">
@@ -56,7 +68,6 @@
             </nav>
             
             <div class="nav-actions">
-                <a href="#cta" class="btn btn-primary btn-shine" id="navCta">Get Started</a>
                 <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Menu">
                     <span class="bar"></span>
                     <span class="bar"></span>
@@ -81,13 +92,31 @@
                     Access stocks, ETFs, retirement accounts, and intelligent portfolio insights through one modern platform designed for long-term growth.
                 </p>
                 <div class="hero-actions">
-                    <a href="#cta" class="btn btn-primary btn-magnetic btn-shine">Get Started</a>
-                    <a href="#showcase" class="btn btn-secondary btn-magnetic">
-                        <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M8 5V19L19 12L8 5Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                    <a href="tel:999999999" class="btn btn-primary btn-magnetic btn-shine hero-call-btn">
+                        <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
                         </svg>
-                        Watch Demo
+                        999999999
                     </a>
+                </div>
+
+                <div class="trust-badges-row">
+                    <div class="trust-badge-item">
+                        <span class="badge-icon">★</span>
+                        <span class="badge-text">Rated by millions</span>
+                    </div>
+                    <div class="trust-badge-item">
+                        <span class="badge-icon">🔒</span>
+                        <span class="badge-text">Secure setup</span>
+                    </div>
+                    <div class="trust-badge-item">
+                        <span class="badge-icon">✓</span>
+                        <span class="badge-text">No hidden fees</span>
+                    </div>
+                    <div class="trust-badge-item">
+                        <span class="badge-icon">⚡</span>
+                        <span class="badge-text">Fast verification</span>
+                    </div>
                 </div>
             </div>
             
@@ -413,6 +442,63 @@
         </div>
     </section>
 
+    <!-- SECTION 5.5 — IMAGE SHOWCASE -->
+    <section class="image-showcase" id="imageShowcase">
+        <div class="showcase-section-container">
+            <div class="showcase-header reveal-up text-center">
+                <h2 class="section-title">Invest with confidence.</h2>
+                <p class="hero-subtitle text-center" style="margin-left: auto; margin-right: auto;">Powerful tools designed to help you make smarter financial decisions.</p>
+            </div>
+            
+            <div class="masonry-grid">
+                <!-- Masonry Item 1 -->
+                <div class="masonry-item card-lift glow-effect reveal-left">
+                    <div class="masonry-card glass-container">
+                        <div class="card-glow"></div>
+                        <div class="masonry-image-wrapper">
+                            <img src="assets/showcase_2.jpeg" alt="Retirement growth insights screenshot" class="masonry-img zoom-effect">
+                            <div class="glass-reflection"></div>
+                        </div>
+                        <div class="masonry-card-content">
+                            <h4 class="masonry-card-title">Retirement Planning</h4>
+                            <p class="masonry-card-desc">Simulate interest outcomes and schedule automated matches instantly.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Masonry Item 2 -->
+                <div class="masonry-item card-lift glow-effect reveal-up">
+                    <div class="masonry-card glass-container">
+                        <div class="card-glow"></div>
+                        <div class="masonry-image-wrapper">
+                            <img src="assets/showcase_1.png" alt="Automated investing split mockup screenshot" class="masonry-img zoom-effect">
+                            <div class="glass-reflection"></div>
+                        </div>
+                        <div class="masonry-card-content">
+                            <h4 class="masonry-card-title">Automated Allocations</h4>
+                            <p class="masonry-card-desc">Invest hands-free with portfolios balanced regularly by machine intelligence.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Masonry Item 3 -->
+                <div class="masonry-item card-lift glow-effect reveal-right">
+                    <div class="masonry-card glass-container">
+                        <div class="card-glow"></div>
+                        <div class="masonry-image-wrapper">
+                            <img src="assets/showcase_3.jpeg" alt="Market metrics tickers screenshot" class="masonry-img zoom-effect">
+                            <div class="glass-reflection"></div>
+                        </div>
+                        <div class="masonry-card-content">
+                            <h4 class="masonry-card-title">Tick-by-Tick Feed</h4>
+                            <p class="masonry-card-desc">Stay ahead with lightning-fast updates on global market volumes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- SECTION 6 — HOW IT WORKS -->
     <section class="steps" id="steps">
         <div class="steps-container">
@@ -504,7 +590,7 @@
                 <!-- Card 1 -->
                 <div class="testimonial-card card-lift reveal-up">
                     <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">"Investly changed how I look at my savings. The automated portfolios make wealth building completely effortless. The design is absolutely gorgeous."</p>
+                    <p class="testimonial-text">"Robinhood changed how I look at my savings. The automated portfolios make wealth building completely effortless. The design is absolutely gorgeous."</p>
                     <div class="testimonial-user">
                         <div class="testimonial-avatar avatar-1"></div>
                         <div class="user-details">
@@ -530,7 +616,7 @@
                 <!-- Card 3 -->
                 <div class="testimonial-card card-lift reveal-up" style="--delay-multiplier: 2;">
                     <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">"I recommend Investly to all my clients who want a simple, secure, and modern way to grow their long-term portfolios. Retirement match rules."</p>
+                    <p class="testimonial-text">"I recommend Robinhood to all my clients who want a simple, secure, and modern way to grow their long-term portfolios. Retirement match rules."</p>
                     <div class="testimonial-user">
                         <div class="testimonial-avatar avatar-3"></div>
                         <div class="user-details">
@@ -580,7 +666,7 @@
                     </button>
                     <div class="faq-panel">
                         <div class="faq-content">
-                            <p>Security is our highest priority. We employ industry-standard bank-grade security protocols, including AES-256 encryption for data at rest, SSL/TLS protocols for data in transit, multi-factor authentication (2FA), and biometric app locks. Furthermore, Investly is a registered member of SIPC, which protects securities customers of its members up to $500,000.</p>
+                            <p>Security is our highest priority. We employ industry-standard bank-grade security protocols, including AES-256 encryption for data at rest, SSL/TLS protocols for data in transit, multi-factor authentication (2FA), and biometric app locks. Furthermore, Robinhood is a registered member of SIPC, which protects securities customers of its members up to $500,000.</p>
                         </div>
                     </div>
                 </div>
@@ -598,7 +684,7 @@
                     </button>
                     <div class="faq-panel">
                         <div class="faq-content">
-                            <p>No. We believe wealth building should be accessible to everyone, which is why there are absolutely no minimum balance requirements to open or maintain an Investly brokerage account. You can configure automatic investments with whatever amount feels comfortable for your budget.</p>
+                            <p>No. We believe wealth building should be accessible to everyone, which is why there are absolutely no minimum balance requirements to open or maintain a Robinhood brokerage account. You can configure automatic investments with whatever amount feels comfortable for your budget.</p>
                         </div>
                     </div>
                 </div>
@@ -616,7 +702,7 @@
                     </button>
                     <div class="faq-panel">
                         <div class="faq-content">
-                            <p>Absolutely. Investly was built to make investing simple for everyone, from absolute beginners to seasoned professionals. We provide extensive educational articles, a guided onboarding wizard to help you determine your risk tolerance, and automated portfolios that manage allocation rebalancing automatically on your behalf.</p>
+                            <p>Absolutely. Robinhood was built to make investing simple for everyone, from absolute beginners to seasoned professionals. We provide extensive educational articles, a guided onboarding wizard to help you determine your risk tolerance, and automated portfolios that manage allocation rebalancing automatically on your behalf.</p>
                         </div>
                     </div>
                 </div>
@@ -629,11 +715,16 @@
         <div class="cta-container">
             <div class="cta-card card-lift reveal-scale">
                 <div class="cta-glow"></div>
-                <h2 class="cta-title">Your financial future<br>starts today.</h2>
-                <p class="cta-desc">Join millions of investors building long-term wealth with confidence.</p>
-                <div class="cta-buttons">
-                    <a href="#" class="btn btn-primary btn-magnetic btn-shine">Get Started</a>
-                    <a href="#" class="btn btn-secondary btn-magnetic">Learn More</a>
+                <h2 class="cta-title">Ready to take control of your financial future?</h2>
+                <p class="cta-desc">Join millions of investors already building long-term wealth.</p>
+                
+                <div class="cta-actions">
+                    <a href="tel:999999999" class="btn btn-primary btn-magnetic btn-shine cta-call-btn">
+                        <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
+                        999999999
+                    </a>
                 </div>
             </div>
         </div>
@@ -645,11 +736,7 @@
             <div class="footer-top">
                 <div class="footer-brand">
                     <a href="#" class="logo">
-                        <svg class="logo-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4 18L10 12L14 16L20 8" stroke="#C8FF4D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M14 8H20V14" stroke="#C8FF4D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <span>INVESTLY</span>
+                        <img src="assets/logo.png" alt="Robinhood" class="logo-img">
                     </a>
                     <p class="footer-about">
                         A modern wealth management platform dedicated to democratizing investment intelligence for long-term generation builders.
@@ -740,12 +827,12 @@
                     All investments involve risk and the past performance of a security or financial product does not guarantee future results or returns. Keep in mind that while diversification may help spread risk, it does not assure a profit or protect against loss in a down market. There is always the potential of losing money when you invest in securities or other financial products. Investors should consider their investment objectives and risks carefully before investing.
                 </p>
                 <p class="legal-disclaimer">
-                    Brokerage services are offered by Investly Financial LLC, a registered broker-dealer and member SIPC. Advisory services are offered by Investly Advisory LLC, an SEC-registered investment adviser. Both entities are wholly owned subsidiaries of Investly Technologies Inc.
+                    Brokerage services are offered by Robinhood Financial LLC, a registered broker-dealer and member SIPC. Advisory services are offered by Robinhood Advisory LLC, an SEC-registered investment adviser. Both entities are wholly owned subsidiaries of Robinhood Technologies Inc.
                 </p>
             </div>
             
             <div class="footer-bottom">
-                <p class="copyright">&copy; 2026 Investly Technologies Inc. All rights reserved.</p>
+                <p class="copyright">&copy; 2026 Robinhood Technologies Inc. All rights reserved.</p>
                 <div class="footer-system-status">
                     <span class="status-indicator"></span> All Systems Operational
                 </div>
