@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investly — Investing Made Simple, Wealth Building Made Possible</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Access stocks, ETFs, retirement accounts, and intelligent portfolio insights through one modern, secure fintech platform designed for long-term growth.">
+    <meta name="keywords" content="fintech, investing, stocks, ETFs, retirement, wealth management, automated portfolios, financial tools">
+    <meta name="author" content="Investly Technologies">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Investly — Investing Made Simple">
+    <meta property="og:description" content="Access stocks, ETFs, retirement accounts, and intelligent portfolio insights through one modern platform.">
+    
+    <!-- Google Fonts - Inter & Outfit (for headings) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="customCursor"></div>
+    <div class="custom-cursor-dot" id="customCursorDot"></div>
+
+    <!-- Gradient Orbs Background -->
+    <div class="gradient-orbs-container">
+        <div class="orb orb-1" id="orb1"></div>
+        <div class="orb orb-2" id="orb2"></div>
+        <div class="orb orb-3" id="orb3"></div>
+    </div>
+
+    <!-- SECTION 1 — NAVBAR -->
+    <header class="navbar" id="navbar">
+        <div class="navbar-container">
+            <a href="#" class="logo" id="logo">
+                <svg class="logo-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 18L10 12L14 16L20 8" stroke="#C8FF4D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14 8H20V14" stroke="#C8FF4D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>INVESTLY</span>
+            </a>
+            
+            <nav class="nav-menu" id="navMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#benefits" class="nav-link">Products</a></li>
+                    <li class="nav-item"><a href="#showcase" class="nav-link">Pricing</a></li>
+                    <li class="nav-item"><a href="#steps" class="nav-link">Learn</a></li>
+                    <li class="nav-item"><a href="#testimonials" class="nav-link">About</a></li>
+                </ul>
+            </nav>
+            
+            <div class="nav-actions">
+                <a href="#cta" class="btn btn-primary btn-shine" id="navCta">Get Started</a>
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- SECTION 2 — HERO -->
+    <section class="hero" id="hero">
+        <div class="hero-container">
+            <div class="hero-content reveal-up">
+                <div class="badge-eyebrow">
+                    <span class="stars">★★★★★</span> Trusted by 5 Million+ Investors
+                </div>
+                <h1 class="hero-title">
+                    Investing <span class="text-gradient">made simple.</span><br>
+                    Wealth building <span class="text-gradient-alt">made possible.</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Access stocks, ETFs, retirement accounts, and intelligent portfolio insights through one modern platform designed for long-term growth.
+                </p>
+                <div class="hero-actions">
+                    <a href="#cta" class="btn btn-primary btn-magnetic btn-shine">Get Started</a>
+                    <a href="#showcase" class="btn btn-secondary btn-magnetic">
+                        <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 5V19L19 12L8 5Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                        </svg>
+                        Watch Demo
+                    </a>
+                </div>
+            </div>
+            
+            <div class="hero-mockup-wrapper reveal-scale">
+                <div class="dashboard-mockup" id="heroMockup">
+                    <div class="mockup-header">
+                        <div class="mockup-profile">
+                            <div class="avatar-gradient"></div>
+                            <div class="profile-info">
+                                <span class="profile-name">Alex Rivera</span>
+                                <span class="profile-status">Premium Member</span>
+                            </div>
+                        </div>
+                        <div class="mockup-badge">Live</div>
+                    </div>
+                    
+                    <div class="mockup-balance-row">
+                        <div class="balance-info">
+                            <span class="balance-label">Total Portfolio Value</span>
+                            <h3 class="balance-value" id="heroBalanceValue">$74,892.40</h3>
+                        </div>
+                        <div class="profit-badge positive" id="heroProfitBadge">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>+$12,482.90 (+20.01%)</span>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Hero SVG Chart -->
+                    <div class="mockup-chart-container">
+                        <svg class="mockup-chart" viewBox="0 0 500 200" preserveAspectRatio="none">
+                            <defs>
+                                <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="#C8FF4D" stop-opacity="0.25"/>
+                                    <stop offset="100%" stop-color="#C8FF4D" stop-opacity="0"/>
+                                </linearGradient>
+                            </defs>
+                            <!-- Grid Lines -->
+                            <line x1="0" y1="50" x2="500" y2="50" stroke="rgba(255,255,255,0.03)" stroke-dasharray="4"/>
+                            <line x1="0" y1="100" x2="500" y2="100" stroke="rgba(255,255,255,0.03)" stroke-dasharray="4"/>
+                            <line x1="0" y1="150" x2="500" y2="150" stroke="rgba(255,255,255,0.03)" stroke-dasharray="4"/>
+                            <!-- Chart Area & Path -->
+                            <path class="chart-area-path" id="heroChartArea" d="M 0 200 L 0 160 Q 100 130 180 150 T 300 90 T 420 70 L 500 40 L 500 200 Z" fill="url(#chartGradient)"/>
+                            <path class="chart-line-path" id="heroChartLine" d="M 0 160 Q 100 130 180 150 T 300 90 T 420 70 L 500 40" stroke="#C8FF4D" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+
+                    <div class="mockup-floating-container">
+                        <!-- Floating Card 1: Trending Stocks -->
+                        <div class="floating-card stock-card card-lift glow-effect" style="--delay: 0s;">
+                            <span class="fc-label">Trending Tickers</span>
+                            <div class="stock-item">
+                                <div class="ticker">
+                                    <span class="ticker-sym">AAPL</span>
+                                    <span class="ticker-name">Apple Inc.</span>
+                                </div>
+                                <div class="ticker-metrics positive">
+                                    <span class="price">$189.24</span>
+                                    <span class="change">+1.84%</span>
+                                </div>
+                            </div>
+                            <div class="stock-item">
+                                <div class="ticker">
+                                    <span class="ticker-sym">TSLA</span>
+                                    <span class="ticker-name">Tesla Inc.</span>
+                                </div>
+                                <div class="ticker-metrics positive">
+                                    <span class="price">$246.50</span>
+                                    <span class="change">+3.42%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Floating Card 2: Investment Split -->
+                        <div class="floating-card split-card card-lift glow-effect" style="--delay: 1.5s;">
+                            <span class="fc-label">Asset Allocation</span>
+                            <div class="split-bar">
+                                <div class="split-segment segment-1" style="width: 60%;" title="ETFs 60%"></div>
+                                <div class="split-segment segment-2" style="width: 30%;" title="Stocks 30%"></div>
+                                <div class="split-segment segment-3" style="width: 10%;" title="Cash 10%"></div>
+                            </div>
+                            <div class="split-legend">
+                                <div><span class="dot d1"></span> ETFs</div>
+                                <div><span class="dot d2"></span> Stocks</div>
+                                <div><span class="dot d3"></span> Cash</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3 — TRUST BAR -->
+    <section class="trust-bar" id="trustBar">
+        <div class="trust-container">
+            <h4 class="trust-title reveal-up">Featured In Leading Financial Publications</h4>
+            
+            <!-- Infinite Logo Marquee -->
+            <div class="logo-marquee-wrapper reveal-up">
+                <div class="logo-marquee">
+                    <!-- Set 1 -->
+                    <div class="marquee-content">
+                        <div class="marquee-logo">
+                            <span class="logo-text">Bloomberg</span>
+                        </div>
+                        <div class="marquee-logo">
+                            <span class="logo-text italic">Forbes</span>
+                        </div>
+                        <div class="marquee-logo">
+                            <span class="logo-text bold">CNBC</span>
+                        </div>
+                        <div class="marquee-logo">
+                            <span class="logo-text tech">TechCrunch</span>
+                        </div>
+                        <div class="marquee-logo">
+                            <span class="logo-text serif">Yahoo! Finance</span>
+                        </div>
+                        <div class="marquee-logo">
+                            <span class="logo-text ft">Financial Times</span>
+                        </div>
+                    </div>
+                    <!-- Set 2 (Duplicate for seamless loop) -->
+                    <div class="marquee-content" aria-hidden="true">
+                        <div class="marquee-logo">
+                            <span class="logo-text">Bloomberg</span>
+                        </div>
+                        <div class="marquee-logo">
+                            <span class="logo-text italic">Forbes</span>
+                        </div>
+                        <div class="marquee-logo">
+                            <span class="logo-text bold">CNBC</span>
+                        </div>
+                        <div class="marquee-logo">
+                            <span class="logo-text tech">TechCrunch</span>
+                        </div>
+                        <div class="marquee-logo">
+                            <span class="logo-text serif">Yahoo! Finance</span>
+                        </div>
+                        <div class="marquee-logo">
+                            <span class="logo-text ft">Financial Times</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4 — BENEFITS -->
+    <section class="benefits" id="benefits">
+        <div class="benefits-container">
+            <h2 class="section-title reveal-up text-center">Everything you need<br>to grow your wealth.</h2>
+            
+            <div class="benefits-grid">
+                <!-- Card 1 -->
+                <div class="benefit-card card-lift glow-effect reveal-left">
+                    <div class="card-glow"></div>
+                    <div class="card-content">
+                        <div class="benefit-number">01</div>
+                        <div class="benefit-icon-wrapper">
+                            <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" stroke-linecap="round"/>
+                                <path d="M12 8V16" stroke-linecap="round"/>
+                                <path d="M8 12H16" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="benefit-title">Stocks & ETFs</h3>
+                        <p class="benefit-desc">Invest in thousands of companies globally with zero commissions and direct fractional shares.</p>
+                    </div>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="benefit-card card-lift glow-effect reveal-right">
+                    <div class="card-glow"></div>
+                    <div class="card-content">
+                        <div class="benefit-number">02</div>
+                        <div class="benefit-icon-wrapper">
+                            <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="benefit-title">Retirement Accounts</h3>
+                        <p class="benefit-desc">Plan for the future with confidence. Set up IRAs with instant matching and tax-advantaged growth.</p>
+                    </div>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="benefit-card card-lift glow-effect reveal-left">
+                    <div class="card-glow"></div>
+                    <div class="card-content">
+                        <div class="benefit-number">03</div>
+                        <div class="benefit-icon-wrapper">
+                            <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                                <line x1="12" y1="22.08" x2="12" y2="12"/>
+                            </svg>
+                        </div>
+                        <h3 class="benefit-title">Market Insights</h3>
+                        <p class="benefit-desc">Understand opportunities before others. Advanced metrics, smart indicators, and expert sentiment.</p>
+                    </div>
+                </div>
+                
+                <!-- Card 4 -->
+                <div class="benefit-card card-lift glow-effect reveal-right">
+                    <div class="card-glow"></div>
+                    <div class="card-content">
+                        <div class="benefit-number">04</div>
+                        <div class="benefit-icon-wrapper">
+                            <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                            </svg>
+                        </div>
+                        <h3 class="benefit-title">Automated Investing</h3>
+                        <p class="benefit-desc">Stay invested without the complexity. Custom robo-advisors that balance and reinvest automatically.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5 — LIVE DASHBOARD SHOWCASE -->
+    <section class="showcase" id="showcase">
+        <div class="showcase-container">
+            <h2 class="section-title reveal-up">See your money working<br>in real time.</h2>
+            
+            <div class="showcase-layout">
+                <div class="showcase-features reveal-left">
+                    <div class="feature-item active" data-target="0">
+                        <div class="feature-indicator"></div>
+                        <h4 class="feature-title">Portfolio Tracking</h4>
+                        <p class="feature-desc">Monitor your net worth, view historic allocations, and track performance changes over custom frames.</p>
+                    </div>
+                    <div class="feature-item" data-target="1">
+                        <div class="feature-indicator"></div>
+                        <h4 class="feature-title">Smart Insights</h4>
+                        <p class="feature-desc">Receive real-time explanations for stock movements and personalized portfolio optimization tips.</p>
+                    </div>
+                    <div class="feature-item" data-target="2">
+                        <div class="feature-indicator"></div>
+                        <h4 class="feature-title">Real-Time Performance</h4>
+                        <p class="feature-desc">Experience latency-free trade execution and real-time tick-by-tick updates on prices.</p>
+                    </div>
+                    <div class="feature-item" data-target="3">
+                        <div class="feature-indicator"></div>
+                        <h4 class="feature-title">Risk Analysis</h4>
+                        <p class="feature-desc">Understand your volatility index and receive smart hedging alerts before market downturns.</p>
+                    </div>
+                </div>
+                
+                <div class="showcase-visual reveal-right">
+                    <div class="dashboard-mockup large-mockup">
+                        <div class="mockup-header">
+                            <span class="mockup-title">Core Engine v2.4</span>
+                            <div class="timeframe-tabs" id="showcaseTabs">
+                                <button class="tab-btn active" data-time="1D">1D</button>
+                                <button class="tab-btn" data-time="1W">1W</button>
+                                <button class="tab-btn" data-time="1M">1M</button>
+                                <button class="tab-btn" data-time="3M">3M</button>
+                                <button class="tab-btn" data-time="1Y">1Y</button>
+                                <button class="tab-btn" data-time="ALL">ALL</button>
+                            </div>
+                        </div>
+                        
+                        <div class="mockup-balance-row">
+                            <div class="balance-info">
+                                <span class="balance-label">Net Liquidation Value</span>
+                                <h3 class="balance-value large-value" id="showcaseBalanceValue">$143,584.22</h3>
+                            </div>
+                            <div class="profit-badge positive" id="showcaseProfitBadge">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" stroke-width="3"/>
+                                </svg>
+                                <span id="showcaseProfitText">+$28,490.50 (+24.75%)</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Interactive SVG Showcase Chart -->
+                        <div class="mockup-chart-container main-chart">
+                            <svg class="mockup-chart" id="showcaseChart" viewBox="0 0 800 300" preserveAspectRatio="none">
+                                <defs>
+                                    <linearGradient id="showcaseChartGradient" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#8AFF00" stop-opacity="0.2"/>
+                                        <stop offset="100%" stop-color="#8AFF00" stop-opacity="0"/>
+                                    </linearGradient>
+                                </defs>
+                                <g class="grid-lines" stroke="rgba(255,255,255,0.02)" stroke-width="1">
+                                    <line x1="0" y1="60" x2="800" y2="60"/>
+                                    <line x1="0" y1="120" x2="800" y2="120"/>
+                                    <line x1="0" y1="180" x2="800" y2="180"/>
+                                    <line x1="0" y1="240" x2="800" y2="240"/>
+                                    <line x1="160" y1="0" x2="160" y2="300" stroke-dasharray="4"/>
+                                    <line x1="320" y1="0" x2="320" y2="300" stroke-dasharray="4"/>
+                                    <line x1="480" y1="0" x2="480" y2="300" stroke-dasharray="4"/>
+                                    <line x1="640" y1="0" x2="640" y2="300" stroke-dasharray="4"/>
+                                </g>
+                                <path class="chart-area-path" id="showcaseChartArea" d="M 0 300 L 0 250 Q 200 200 400 180 T 800 120 L 800 300 Z" fill="url(#showcaseChartGradient)"/>
+                                <path class="chart-line-path" id="showcaseChartLine" d="M 0 250 Q 200 200 400 180 T 800 120" stroke="#8AFF00" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+                                
+                                <!-- Hover Line and Tooltip marker -->
+                                <line class="chart-hover-line" id="chartHoverLine" x1="0" y1="0" x2="0" y2="300" stroke="rgba(255,255,255,0.15)" stroke-width="1" style="display:none;"/>
+                                <circle class="chart-hover-dot" id="chartHoverDot" cx="0" cy="0" r="6" fill="#8AFF00" stroke="#050505" stroke-width="3" style="display:none;"/>
+                            </svg>
+                            <div class="chart-tooltip" id="chartTooltip" style="display:none;">$143,584.22</div>
+                        </div>
+
+                        <!-- Floating Micro Elements -->
+                        <div class="floating-ui-card risk-card card-lift">
+                            <div class="ui-icon-circle positive">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                </svg>
+                            </div>
+                            <div class="ui-card-content">
+                                <span class="ui-card-label">Risk Profile</span>
+                                <span class="ui-card-val">Moderate-Aggressive</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6 — HOW IT WORKS -->
+    <section class="steps" id="steps">
+        <div class="steps-container">
+            <h2 class="section-title reveal-up text-center">Start investing in minutes.</h2>
+            
+            <div class="timeline-wrapper">
+                <div class="timeline-progress-track">
+                    <div class="timeline-progress-bar" id="timelineProgressBar"></div>
+                </div>
+                
+                <div class="step-cards-container">
+                    <!-- Step 1 -->
+                    <div class="step-card reveal-up" data-step="1">
+                        <div class="step-number-bubble">1</div>
+                        <div class="step-content">
+                            <h3 class="step-title">Create Account</h3>
+                            <p class="step-desc">Provide your basic info, verify your identity, and get approved inside five minutes.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div class="step-card reveal-up" data-step="2">
+                        <div class="step-number-bubble">2</div>
+                        <div class="step-content">
+                            <h3 class="step-title">Fund Portfolio</h3>
+                            <p class="step-desc">Connect bank accounts securely using industry-standard link layers. Zero fee transfers.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3 -->
+                    <div class="step-card reveal-up" data-step="3">
+                        <div class="step-number-bubble">3</div>
+                        <div class="step-content">
+                            <h3 class="step-title">Invest</h3>
+                            <p class="step-desc">Select individual holdings, choose custom thematic portfolios, or build an automated plan.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 4 -->
+                    <div class="step-card reveal-up" data-step="4">
+                        <div class="step-number-bubble">4</div>
+                        <div class="step-content">
+                            <h3 class="step-title">Grow</h3>
+                            <p class="step-desc">Track progress over time, harvest tax losses, and watch dividends automatically reinvest.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7 — STATISTICS -->
+    <section class="stats" id="stats">
+        <div class="stats-container">
+            <div class="stats-grid">
+                <!-- Stat 1 -->
+                <div class="stat-card reveal-scale">
+                    <h3 class="stat-number" data-target="150" data-prefix="$" data-suffix="B+">$0B+</h3>
+                    <p class="stat-label">Assets Managed</p>
+                </div>
+                
+                <!-- Stat 2 -->
+                <div class="stat-card reveal-scale">
+                    <h3 class="stat-number" data-target="5" data-suffix="M+">0M+</h3>
+                    <p class="stat-label">Active Investors</p>
+                </div>
+                
+                <!-- Stat 3 -->
+                <div class="stat-card reveal-scale">
+                    <h3 class="stat-number" data-target="99.99" data-decimals="2" data-suffix="%">0.00%</h3>
+                    <p class="stat-label">Platform Uptime</p>
+                </div>
+                
+                <!-- Stat 4 -->
+                <div class="stat-card reveal-scale">
+                    <h3 class="stat-number" data-target="4.9" data-decimals="1" data-suffix="/5">0.0/5</h3>
+                    <p class="stat-label">User Rating</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 8 — TESTIMONIALS -->
+    <section class="testimonials" id="testimonials">
+        <div class="testimonials-container">
+            <h2 class="section-title reveal-up text-center">Trusted by investors worldwide.</h2>
+            
+            <div class="testimonials-grid">
+                <!-- Card 1 -->
+                <div class="testimonial-card card-lift reveal-up">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Investly changed how I look at my savings. The automated portfolios make wealth building completely effortless. The design is absolutely gorgeous."</p>
+                    <div class="testimonial-user">
+                        <div class="testimonial-avatar avatar-1"></div>
+                        <div class="user-details">
+                            <span class="user-name">Sarah Jenkins</span>
+                            <span class="user-role">Product Designer</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="testimonial-card card-lift reveal-up" style="--delay-multiplier: 1;">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"The real-time insights and zero-commission trading are unmatched. The clean interface makes investing actually enjoyable. Execution speed is incredible."</p>
+                    <div class="testimonial-user">
+                        <div class="testimonial-avatar avatar-2"></div>
+                        <div class="user-details">
+                            <span class="user-name">Marcus Chen</span>
+                            <span class="user-role">Software Engineer</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="testimonial-card card-lift reveal-up" style="--delay-multiplier: 2;">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"I recommend Investly to all my clients who want a simple, secure, and modern way to grow their long-term portfolios. Retirement match rules."</p>
+                    <div class="testimonial-user">
+                        <div class="testimonial-avatar avatar-3"></div>
+                        <div class="user-details">
+                            <span class="user-name">Elena Rostova</span>
+                            <span class="user-role">Financial Advisor</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 9 — FAQ -->
+    <section class="faq" id="faq">
+        <div class="faq-container">
+            <h2 class="section-title reveal-up text-center">Frequently Asked Questions</h2>
+            
+            <div class="faq-accordion-container reveal-up">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item">
+                    <button class="faq-trigger" aria-expanded="false">
+                        <span>What can I invest in?</span>
+                        <span class="faq-icon-holder">
+                            <svg class="faq-plus" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <line x1="12" y1="5" x2="12" y2="19"/>
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="faq-panel">
+                        <div class="faq-content">
+                            <p>You can invest in thousands of individual stocks, exchange-traded funds (ETFs), and long-term retirement portfolios tailored to your financial goals. We also support fractional shares, meaning you can buy portions of premium stocks with as little as $1.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="faq-item">
+                    <button class="faq-trigger" aria-expanded="false">
+                        <span>How secure is the platform?</span>
+                        <span class="faq-icon-holder">
+                            <svg class="faq-plus" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <line x1="12" y1="5" x2="12" y2="19"/>
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="faq-panel">
+                        <div class="faq-content">
+                            <p>Security is our highest priority. We employ industry-standard bank-grade security protocols, including AES-256 encryption for data at rest, SSL/TLS protocols for data in transit, multi-factor authentication (2FA), and biometric app locks. Furthermore, Investly is a registered member of SIPC, which protects securities customers of its members up to $500,000.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="faq-item">
+                    <button class="faq-trigger" aria-expanded="false">
+                        <span>Are there account minimums?</span>
+                        <span class="faq-icon-holder">
+                            <svg class="faq-plus" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <line x1="12" y1="5" x2="12" y2="19"/>
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="faq-panel">
+                        <div class="faq-content">
+                            <p>No. We believe wealth building should be accessible to everyone, which is why there are absolutely no minimum balance requirements to open or maintain an Investly brokerage account. You can configure automatic investments with whatever amount feels comfortable for your budget.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 4 -->
+                <div class="faq-item">
+                    <button class="faq-trigger" aria-expanded="false">
+                        <span>Can beginners use it?</span>
+                        <span class="faq-icon-holder">
+                            <svg class="faq-plus" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <line x1="12" y1="5" x2="12" y2="19"/>
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="faq-panel">
+                        <div class="faq-content">
+                            <p>Absolutely. Investly was built to make investing simple for everyone, from absolute beginners to seasoned professionals. We provide extensive educational articles, a guided onboarding wizard to help you determine your risk tolerance, and automated portfolios that manage allocation rebalancing automatically on your behalf.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 10 — FINAL CTA -->
+    <section class="cta" id="cta">
+        <div class="cta-container">
+            <div class="cta-card card-lift reveal-scale">
+                <div class="cta-glow"></div>
+                <h2 class="cta-title">Your financial future<br>starts today.</h2>
+                <p class="cta-desc">Join millions of investors building long-term wealth with confidence.</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-primary btn-magnetic btn-shine">Get Started</a>
+                    <a href="#" class="btn btn-secondary btn-magnetic">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 11 — FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <svg class="logo-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 18L10 12L14 16L20 8" stroke="#C8FF4D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M14 8H20V14" stroke="#C8FF4D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>INVESTLY</span>
+                    </a>
+                    <p class="footer-about">
+                        A modern wealth management platform dedicated to democratizing investment intelligence for long-term generation builders.
+                    </p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon" aria-label="Twitter">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Discord">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.873-.894.077.077 0 0 1-.008-.128c.126-.093.252-.19.372-.287a.075.075 0 0 1 .077-.011c3.92 1.793 8.18 1.793 12.061 0a.073.073 0 0 1 .078.009c.12.099.246.195.373.289a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107 14.314 14.314 0 0 0 1.226 1.99.075.075 0 0 0 .084.03 19.793 19.793 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.156-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.156 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.156-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.156 2.418z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links-grid">
+                    <div class="footer-column">
+                        <h5 class="footer-label">Products</h5>
+                        <ul class="footer-links">
+                            <li><a href="#">Stocks & ETFs</a></li>
+                            <li><a href="#">Retirement</a></li>
+                            <li><a href="#">Automated portfolios</a></li>
+                            <li><a href="#">Cash Card</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h5 class="footer-label">Company</h5>
+                        <ul class="footer-links">
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Press Kit</a></li>
+                            <li><a href="#">Blog</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h5 class="footer-label">Resources</h5>
+                        <ul class="footer-links">
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Learn Investing</a></li>
+                            <li><a href="#">Platform Status</a></li>
+                            <li><a href="#">Contact Support</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h5 class="footer-label">Legal</h5>
+                        <ul class="footer-links">
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Use</a></li>
+                            <li><a href="#">Disclosures</a></li>
+                            <li><a href="#">SIPC Protection</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="footer-newsletter">
+                    <h5 class="footer-label">Stay Updated</h5>
+                    <p class="newsletter-desc">Subscribe to our weekly market breakdown report.</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" class="newsletter-input" placeholder="Your email address" required aria-label="Email Address">
+                        <button type="submit" class="newsletter-submit" aria-label="Subscribe">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                                <polyline points="12 5 19 12 12 19"/>
+                            </svg>
+                        </button>
+                    </form>
+                    <span class="newsletter-success" id="newsletterSuccess">Subscribed successfully!</span>
+                </div>
+            </div>
+            
+            <div class="footer-middle">
+                <p class="legal-disclaimer">
+                    All investments involve risk and the past performance of a security or financial product does not guarantee future results or returns. Keep in mind that while diversification may help spread risk, it does not assure a profit or protect against loss in a down market. There is always the potential of losing money when you invest in securities or other financial products. Investors should consider their investment objectives and risks carefully before investing.
+                </p>
+                <p class="legal-disclaimer">
+                    Brokerage services are offered by Investly Financial LLC, a registered broker-dealer and member SIPC. Advisory services are offered by Investly Advisory LLC, an SEC-registered investment adviser. Both entities are wholly owned subsidiaries of Investly Technologies Inc.
+                </p>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2026 Investly Technologies Inc. All rights reserved.</p>
+                <div class="footer-system-status">
+                    <span class="status-indicator"></span> All Systems Operational
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script file -->
+    <script src="script.js"></script>
+</body>
+</html>
