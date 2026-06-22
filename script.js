@@ -238,39 +238,33 @@ document.addEventListener('DOMContentLoaded', () => {
     statNumbers.forEach(num => statsObserver.observe(num));
 
     /* ====================================================
-       8. HERO DYNAMIC PORTFOLIO TICKER FLUCTUATIONS & PARALLAX
+       8. HERO DYNAMIC SUPPORT STATUS & PARALLAX
        ==================================================== */
     const heroBalance = document.getElementById('heroBalanceValue');
     const heroProfit = document.getElementById('heroProfitBadge');
     const heroMockup = document.getElementById('heroMockup');
 
     if (heroBalance && heroProfit) {
-        let baseBalance = 74892.40;
-        let baseProfit = 12482.90;
-        let basePercentage = 20.01;
+        let responseSeconds = 134;
+        const statusMessages = [
+            'Live support available',
+            'Secure chat queue open',
+            'Customer care online',
+            'Fast routing active'
+        ];
+        let statusIndex = 0;
 
         setInterval(() => {
-            // Generate a random walk stock increment
-            const change = (Math.random() - 0.48) * 12.5; // Slightly biased upwards
-            baseBalance += change;
-            baseProfit += change;
-            
-            // Re-calculate percentages
-            const totalPrincipal = baseBalance - baseProfit;
-            basePercentage = (baseProfit / totalPrincipal) * 100;
+            responseSeconds += Math.round((Math.random() - 0.5) * 8);
+            responseSeconds = Math.max(75, Math.min(185, responseSeconds));
 
-            // Formatted string
-            heroBalance.textContent = `$${baseBalance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-            
-            const sign = baseProfit >= 0 ? '+' : '';
-            const signPercent = basePercentage >= 0 ? '+' : '';
-            heroProfit.querySelector('span').textContent = `${sign}$${baseProfit.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} (${signPercent}${basePercentage.toFixed(2)}%)`;
-            
-            if (baseProfit >= 0) {
-                heroProfit.className = 'profit-badge positive';
-            } else {
-                heroProfit.className = 'profit-badge negative';
-            }
+            const minutes = String(Math.floor(responseSeconds / 60)).padStart(2, '0');
+            const seconds = String(responseSeconds % 60).padStart(2, '0');
+            heroBalance.textContent = `${minutes}:${seconds}`;
+
+            statusIndex = (statusIndex + 1) % statusMessages.length;
+            heroProfit.querySelector('span').textContent = statusMessages[statusIndex];
+            heroProfit.className = 'profit-badge positive';
         }, 2500);
     }
 
@@ -356,7 +350,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <span class="toast-icon">🚀</span>
                         <div class="toast-text">
                             <strong>Success!</strong>
-                            <span>Investing guide sent to ${countryCode} ${phoneNumber}</span>
+                            <span>Support request sent to ${countryCode} ${phoneNumber}</span>
                         </div>
                     </div>
                 `;
@@ -400,41 +394,41 @@ document.addEventListener('DOMContentLoaded', () => {
     const hoverDot = document.getElementById('chartHoverDot');
     const tooltip = document.getElementById('chartTooltip');
 
-    // Chart Timeframe coordinates and display values
+    // Support volume coordinates and display values
     const chartData = {
         '1D': {
-            balance: '$143,584.22',
-            profit: '+$2,490.50 (+1.76%)',
+            balance: '18,420',
+            profit: '92% same-day resolution',
             positive: true,
             coords: [240, 250, 220, 230, 210, 225, 205, 190, 200, 180, 195, 185, 170, 180, 160, 140, 150, 130, 145, 120]
         },
         '1W': {
-            balance: '$141,230.12',
-            profit: '+$5,892.40 (+4.35%)',
+            balance: '96,840',
+            profit: '94% routed on first contact',
             positive: true,
             coords: [260, 270, 250, 230, 240, 220, 190, 210, 180, 190, 160, 175, 150, 130, 110, 120]
         },
         '1M': {
-            balance: '$139,482.90',
-            profit: '+$14,249.20 (+11.38%)',
+            balance: '384,210',
+            profit: '89% resolved without escalation',
             positive: true,
             coords: [280, 270, 290, 260, 240, 250, 220, 230, 200, 210, 190, 170, 180, 150, 160, 130, 140, 110, 95]
         },
         '3M': {
-            balance: '$126,892.45',
-            profit: '-$8,490.10 (-6.27%)',
-            positive: false,
+            balance: '1,120,500',
+            profit: 'Priority reviews elevated',
+            positive: true,
             coords: [90, 110, 130, 120, 140, 160, 150, 180, 200, 190, 210, 230, 220, 245, 250, 260, 240, 255, 270, 280]
         },
         '1Y': {
-            balance: '$143,584.22',
-            profit: '+$28,490.50 (+24.75%)',
+            balance: '4,840,000',
+            profit: '4.8/5 average support rating',
             positive: true,
             coords: [270, 280, 290, 275, 255, 240, 260, 220, 205, 190, 210, 180, 165, 140, 155, 125, 110, 90, 100, 70, 60]
         },
         'ALL': {
-            balance: '$143,584.22',
-            profit: '+$94,892.40 (+194.88%)',
+            balance: '12,600,000',
+            profit: '24/7 customer care coverage',
             positive: true,
             coords: [295, 285, 290, 260, 270, 240, 230, 250, 210, 190, 200, 170, 150, 160, 120, 130, 90, 100, 70, 80, 50, 40]
         }
@@ -566,7 +560,7 @@ document.addEventListener('DOMContentLoaded', () => {
             hoverDot.setAttribute('cx', closestPoint.x);
             hoverDot.setAttribute('cy', closestPoint.y);
 
-            // Calculate mock fluctuating dollar amount based on Y coordinate height
+            // Calculate mock fluctuating support volume based on Y coordinate height
             const balanceNum = parseFloat(activeData.balance.replace(/[^0-9.]/g, ''));
             // Standard variance offset based on line height ratio
             const minHeightY = Math.min(...activeData.coords);
@@ -574,16 +568,16 @@ document.addEventListener('DOMContentLoaded', () => {
             const yRange = maxHeightY - minHeightY;
             const relativeOffsetRatio = (closestPoint.y - minHeightY) / yRange;
             
-            // Compute relative balance value at dot
+            // Compute relative support volume at dot
             const hoveredValue = balanceNum * (1 - (relativeOffsetRatio * 0.05));
 
             tooltip.style.display = 'block';
-            tooltip.textContent = `$${hoveredValue.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+            tooltip.textContent = `${Math.round(hoveredValue).toLocaleString('en-US')} chats`;
             tooltip.style.left = `${viewX}px`;
             tooltip.style.top = `${viewY - 12}px`;
             
-            // Showcase balance header follows cursor values
-            showcaseBalance.textContent = `$${hoveredValue.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+            // Showcase support count header follows cursor values
+            showcaseBalance.textContent = Math.round(hoveredValue).toLocaleString('en-US');
         });
 
         // Mouse leaves chart -> restores original stats
